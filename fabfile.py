@@ -2,8 +2,7 @@ from fabric.api import *
 import os
 import shutil
 import sys
-
-#from pelican.server import ComplexHTTPRequestHandler, socketserver
+from pelican.server import ComplexHTTPRequestHandler, socketserver
 
 
 # Local path configuration (can be absolute or relative to fabfile)

@@ -8,7 +8,6 @@ SITETITLE = AUTHOR
 SITESUBTITLE = 'infosec/DFIR/DevOps/containers(everywhere!)/nerd'
 SITEDESCRIPTION = '%s\'s Thoughts' % AUTHOR
 SITELOGO = 'https://www.gravatar.com/avatar/82c34353ff545bf6a6b1098926cd6421?s=120'
-# FAVICON = '/images/favicon.ico'
 BROWSER_COLOR = '#333333'
 PYGMENTS_STYLE = 'monokai'
 
@@ -68,6 +67,7 @@ SITEMAP = {
     }
 }
 
+ARTICLE_PATHS = ['articles']
 STATIC_PATHS = ['images', 'extra']
 
 EXTRA_PATH_METADATA = {
