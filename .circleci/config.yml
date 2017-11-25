@@ -25,18 +25,19 @@ jobs:
       - run:
           name: clean
           command:
-            $(which fab) clean
+            ~/.local/bin/fab clean
       - run:
           name: build
           command:
-            fab build
+            ~/.local/bin/fab build
   deploy:
     <<: *defaults
     steps:
       - run:
           name: publish
-          command: fab publish
-
+          command: 
+            ~/.local/bin/fab publish
+            
 workflows:
   version: 2
   build-and-deploy:
