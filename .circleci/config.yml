@@ -28,7 +28,7 @@ jobs:
             git clone https://github.com/alexandrevicenzi/Flex.git
       - run:
           name: clean
-          command:
+          command: |
             ls -lart
             fab clean
       - run:
