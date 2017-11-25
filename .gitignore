@@ -62,4 +62,5 @@ output
 *.pid
 
 # Self
-ideas
+ideas/
+Flex/
