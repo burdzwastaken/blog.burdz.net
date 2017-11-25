@@ -4,6 +4,7 @@ defaults: &defaults
   machine:
     enabled: true
   environment:
+    PATH: ~/.local/bin:$PATH
 
 jobs:
   build:
@@ -25,18 +26,18 @@ jobs:
       - run:
           name: clean
           command:
-            ~/.local/bin/fab clean
+            fab clean
       - run:
           name: build
           command:
-            ~/.local/bin/fab build
+            fab build
   deploy:
     <<: *defaults
     steps:
       - run:
           name: publish
           command: 
-            ~/.local/bin/fab publish
+            fab publish
             
 workflows:
   version: 2
