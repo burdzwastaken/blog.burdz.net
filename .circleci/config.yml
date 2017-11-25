@@ -25,7 +25,7 @@ jobs:
       - run:
           name: clean
           command:
-            fab clean
+            $(which fab) clean
       - run:
           name: build
           command:
