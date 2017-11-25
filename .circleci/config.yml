@@ -12,9 +12,6 @@ jobs:
   build:
     <<: *defaults
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "59:35:bd:9f:13:87:07:26:43:53:3e:1a:3a:5d:de:71"
       - checkout
       - run:
           name: set path
