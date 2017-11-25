@@ -37,7 +37,7 @@ jobs:
       - save_cache:
           key: workingdir
           paths:
-            - $HOME/project/
+            - $HOME
   deploy:
     <<: *defaults
     steps:
