@@ -60,3 +60,6 @@ target/
 venv
 output
 *.pid
+
+# Self
+ideas
