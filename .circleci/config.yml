@@ -37,7 +37,7 @@ jobs:
       - save_cache:
           key: workingdir
           paths:
-            - ~/.local/bin
+            - ~/$HOME/project/
   deploy:
     <<: *defaults
     steps:
