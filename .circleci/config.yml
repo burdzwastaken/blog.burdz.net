@@ -37,7 +37,7 @@ jobs:
       - save_cache:
           key: workingdir
           paths:
-            - $CIRCLE_WORKING_DIRECTORY
+            - /home/circleci
   deploy:
     <<: *defaults
     steps:
