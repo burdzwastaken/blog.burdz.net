@@ -30,7 +30,7 @@ jobs:
             pip install -r requirements.txt --upgrade --user
             git clone https://github.com/alexandrevicenzi/Flex.git
             git config --global user.email "burdz@burdz.net" > /dev/null 2>&1
-            git config --global user.name "burdz" > /dev/null 2>&1
+            git config --global user.name "Matt Burdan" > /dev/null 2>&1
       - run:
           name: clean
           command:
