@@ -28,12 +28,12 @@ jobs:
             git clone https://github.com/alexandrevicenzi/Flex.git
       - run:
           name: clean
-          command: |
-            ls -lart
+          command:
             fab clean
       - run:
           name: build
-          command: 
+          command: | 
+            ls -lart
             fab build
   deploy:
     <<: *defaults
