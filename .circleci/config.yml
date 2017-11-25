@@ -44,6 +44,10 @@ jobs:
       - restore_cache:
           keys:
             workingdir
+      - run: 
+          name: set path
+          command:
+            echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
       - run:
           name: publish
           command: 
