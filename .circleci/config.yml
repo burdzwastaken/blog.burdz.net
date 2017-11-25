@@ -4,7 +4,6 @@ defaults: &defaults
   machine:
     enabled: true
   environment:
-    PATH: ~/.local/bin:$PATH
 
 jobs:
   build:
@@ -14,6 +13,7 @@ jobs:
           fingerprints:
             - "59:35:bd:9f:13:87:07:26:43:53:3e:1a:3a:5d:de:71"
       - checkout
+      - run: echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
       - run:
           name: install dependencies
           command: |
