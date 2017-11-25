@@ -34,9 +34,16 @@ jobs:
           name: build
           command: | 
             fab build
+      - save_cache:
+          key: workingdir
+          paths:
+            - ~/.local/bin
   deploy:
     <<: *defaults
     steps:
+      - restore_cache:
+          keys:
+            workingdir
       - run:
           name: publish
           command: 
