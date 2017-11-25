@@ -41,7 +41,6 @@ jobs:
             fab build
       - run:
           name: publish
-          command: |
-            ls -lart ~/.ssh/
+          command:
             fab publish
 
