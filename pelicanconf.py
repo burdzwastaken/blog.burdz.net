@@ -13,7 +13,7 @@ PYGMENTS_STYLE = 'monokai'
 
 ROBOTS = 'index, follow'
 
-THEME = '../flex'
+THEME = './Flex'
 PATH = 'content'
 TIMEZONE = 'America/New_York'
 
