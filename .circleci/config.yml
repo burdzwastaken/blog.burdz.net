@@ -16,7 +16,7 @@ jobs:
           fingerprints:
             - "59:35:bd:9f:13:87:07:26:43:53:3e:1a:3a:5d:de:71"
       - checkout
-      - run: 
+      - run:
           name: set path
           command:
             echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
@@ -25,10 +25,12 @@ jobs:
           command: |
             sudo apt update -y
             sudo apt install git python-pip python-dev build-essential -y
-            git clone --recursive https://github.com/getpelican/pelican-plugins 
+            git clone --recursive https://github.com/getpelican/pelican-plugins
             sudo pip install --upgrade pip
             pip install -r requirements.txt --upgrade --user
             git clone https://github.com/alexandrevicenzi/Flex.git
+            git config --global user.email "burdz@burdz.net" > /dev/null 2>&1
+            git config --global user.name "burdz" > /dev/null 2>&1
       - run:
           name: clean
           command:
@@ -39,6 +41,6 @@ jobs:
             fab build
       - run:
           name: publish
-          command: 
+          command:
             fab publish
- 
+
