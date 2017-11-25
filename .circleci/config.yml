@@ -37,7 +37,7 @@ jobs:
       - save_cache:
           key: workingdir
           paths:
-            - ~/project/
+            - {{ .Environment.CIRCLE_WORKING_DIRECTORY }}
   deploy:
     <<: *defaults
     steps:
