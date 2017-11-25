@@ -41,7 +41,7 @@ jobs:
           name: build
           command:
             fab build
-  test:
+  deploy:
     <<: *defaults
     steps:
       - restore_cache:
