@@ -13,23 +13,27 @@ jobs:
           fingerprints:
             - "59:35:bd:9f:13:87:07:26:43:53:3e:1a:3a:5d:de:71"
       - checkout
-      - run: echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
+      - run: 
+          name: set path
+          command:
+            echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
       - run:
           name: install dependencies
           command: |
             sudo apt update -y
             sudo apt install git python-pip python-dev build-essential -y
+            git clone --recursive https://github.com/getpelican/pelican-plugins .
             sudo pip install --upgrade pip
             pip install -r requirements.txt --upgrade --user
             git clone https://github.com/alexandrevicenzi/Flex.git
       - run:
           name: clean
           command:
+            ls -lart
             fab clean
       - run:
           name: build
-          command: |
-            git clone --recursive https://github.com/getpelican/pelican-plugins
+          command: 
             fab build
   deploy:
     <<: *defaults
