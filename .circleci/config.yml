@@ -34,6 +34,7 @@ jobs:
           name: build
           command: | 
             ls -lart
+            ls -lart ./pelican-plugins
             fab build
   deploy:
     <<: *defaults
