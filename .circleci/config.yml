@@ -19,7 +19,6 @@ jobs:
           command: |
             sudo apt update -y
             sudo apt install git python-pip python-dev build-essential -y
-            git clone --recursive https://github.com/getpelican/pelican-plugins
             sudo pip install --upgrade pip
             pip install -r requirements.txt --upgrade --user
             git clone https://github.com/alexandrevicenzi/Flex.git
@@ -29,7 +28,8 @@ jobs:
             fab clean
       - run:
           name: build
-          command:
+          command: |
+            git clone --recursive https://github.com/getpelican/pelican-plugins
             fab build
   deploy:
     <<: *defaults
