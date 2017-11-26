@@ -31,13 +31,9 @@ jobs:
           paths:
             - $HOME
       - run:
-          name: clean
-          command:
-            fab clean
-      - run:
           name: build
           command:
-            fab build
+            fab rebuild
   deploy:
     <<: *defaults
     steps:
