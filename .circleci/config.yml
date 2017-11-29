@@ -14,11 +14,13 @@ jobs:
           name: set path
           command: |
             pwd
+            ls -lart
             echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
       - run:
           name: install dependencies
           command: |
             pwd
+            ls -lart
             sudo apt update -y
             sudo apt install git python-pip python-dev build-essential -y
             git clone --recursive https://github.com/getpelican/pelican-plugins
@@ -43,6 +45,7 @@ jobs:
           name: install dependencies
           command: |
             pwd
+            ls -lart
             sudo apt update -y
             sudo apt install git python-pip python-dev build-essential -y
             sudo pip install --upgrade pip
