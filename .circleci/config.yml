@@ -12,11 +12,13 @@ jobs:
       - checkout
       - run:
           name: set path
-          command:
+          command: |
+            pwd
             echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
       - run:
           name: install dependencies
           command: |
+            pwd
             sudo apt update -y
             sudo apt install git python-pip python-dev build-essential -y
             git clone --recursive https://github.com/getpelican/pelican-plugins
@@ -24,7 +26,7 @@ jobs:
             pip install -r requirements.txt --upgrade --user
             git clone https://github.com/alexandrevicenzi/Flex.git
       - save_cache:
-          key: workingdir-$CIRCLE_BUILD_NUM
+          key: workingdir-CIRCLE_BUILD_NUM
           paths:
             - $HOME
       - run:
@@ -36,10 +38,11 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            workingdir-$CIRCLE_BUILD_NUM
+            workingdir-CIRCLE_BUILD_NUM
       - run:
           name: install dependencies
           command: |
+            pwd
             sudo apt update -y
             sudo apt install git python-pip python-dev build-essential -y
             sudo pip install --upgrade pip
