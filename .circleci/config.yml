@@ -3,9 +3,6 @@ version: 2
 defaults: &defaults
   machine:
     enabled: true
-  branches:
-    only:
-      - master
   environment:
 
 jobs:
@@ -58,7 +55,11 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only:
+                - master
       - hold:
           type: approval
           requires:
