@@ -13,16 +13,16 @@ jobs:
     steps:
       - checkout
       - run:
+          name: set git sha1
+          command:
+           echo $CIRCLE_SHA1 >> git_sha1.txt
+      - run:
           name: set path
-          command: |
-            pwd
-            ls -lart
+          command: 
             echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
       - run:
           name: install dependencies
           command: |
-            pwd
-            ls -lart
             sudo apt update -y
             sudo apt install git python-pip python-dev build-essential -y
             git clone --recursive https://github.com/getpelican/pelican-plugins
@@ -30,7 +30,7 @@ jobs:
             pip install -r requirements.txt --upgrade --user
             git clone https://github.com/alexandrevicenzi/Flex.git
       - save_cache:
-          key: workingdir-test
+          key: workingdir-{{ checksum "git_sha1.txt" }}
           paths:
             - /home/circleci/project/
       - run:
@@ -40,9 +40,17 @@ jobs:
   deploy:
     <<: *defaults
     steps:
+      - run:
+          name: set path
+          command:
+            echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
+      - run:
+          name: set git sha1
+          command:
+           echo $CIRCLE_SHA1 >> git_sha1.txt
       - restore_cache:
           keys:
-            workingdir-test
+            workingdir-{{ checksum "git_sha1.txt" }}
       - run:
           name: install dependencies
           command: |
