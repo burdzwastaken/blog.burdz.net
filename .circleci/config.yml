@@ -27,9 +27,9 @@ jobs:
             pip install -r requirements.txt --upgrade --user
             git clone https://github.com/alexandrevicenzi/Flex.git
       - save_cache:
-          key: workingdir-${CIRCLE_BUILD_NUM}
+          key: "workingdir-${CIRCLE_BUILD_NUM}"
           paths:
-            - ${CIRCLE_WORKING_DIRECTORY}
+            - "${CIRCLE_WORKING_DIRECTORY}"
       - run:
           name: build
           command:
@@ -39,7 +39,7 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            workingdir-${CIRCLE_BUILD_NUM}
+            workingdir-"${CIRCLE_BUILD_NUM}"
       - run:
           name: install dependencies
           command: |
