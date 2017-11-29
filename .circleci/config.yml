@@ -3,9 +3,6 @@ version: 2
 defaults: &defaults
   machine:
     enabled: true
-  environment:
-    BUILD_NUM: ${CIRCLE_BUILD_NUM}
-    WORKING_DIR: ${CIRCLE_WORKING_DIRECTORY}
     
 jobs:
   build:
