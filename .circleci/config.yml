@@ -11,9 +11,8 @@ jobs:
       - checkout
       - run:
           name: set git sha1
-          command: |
-           cat ~/.gitconfig
-           echo $CIRCLE_SHA1 >> git_sha1.txt
+          command:
+            echo $CIRCLE_SHA1 >> git_sha1.txt
       - run:
           name: set path
           command: 
