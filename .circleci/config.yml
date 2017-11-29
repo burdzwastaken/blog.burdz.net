@@ -50,7 +50,7 @@ jobs:
            echo $CIRCLE_SHA1 >> git_sha1.txt
       - restore_cache:
           keys:
-            workingdir-{{ checksum "git_sha1.txt" }}
+            - workingdir-{{ checksum "git_sha1.txt" }}
       - run:
           name: install dependencies
           command: |
