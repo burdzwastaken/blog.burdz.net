@@ -14,6 +14,10 @@ jobs:
           command:
             echo $CIRCLE_SHA1 >> git_sha1.txt
       - run:
+          name: set path
+          command:
+            echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
+      - run:
           name: install dependencies
           command: |
             git clone --recursive https://github.com/getpelican/pelican-plugins
@@ -33,6 +37,10 @@ jobs:
           name: set git sha1
           command:
            echo $CIRCLE_SHA1 >> git_sha1.txt
+      - run:
+          name: set path
+          command:
+            echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
       - restore_cache:
           keys:
             - workingdir-{{ checksum "git_sha1.txt" }}
