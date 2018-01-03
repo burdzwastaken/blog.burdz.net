@@ -25,7 +25,7 @@ jobs:
       - save_cache:
           key: workingdir-{{ checksum "git_sha1.txt" }}
           paths:
-            - /home/circleci/project/
+            - /home/blog/project/
       - run:
           name: build
           command:
