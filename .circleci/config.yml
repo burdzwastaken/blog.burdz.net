@@ -14,17 +14,9 @@ jobs:
           command:
             echo $CIRCLE_SHA1 >> git_sha1.txt
       - run:
-          name: set path
-          command:
-            echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
-      - run:
           name: install dependencies
           command: |
-            sudo apt update -y
-            sudo apt install git python-pip python-dev build-essential -y
             git clone --recursive https://github.com/getpelican/pelican-plugins
-            sudo pip install --upgrade pip
-            pip install -r requirements.txt --upgrade --user
             git clone https://github.com/alexandrevicenzi/Flex.git
       - save_cache:
           key: workingdir-{{ checksum "git_sha1.txt" }}
@@ -38,10 +30,6 @@ jobs:
     <<: *defaults
     steps:
       - run:
-          name: set path
-          command:
-            echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
-      - run:
           name: set git sha1
           command:
            echo $CIRCLE_SHA1 >> git_sha1.txt
@@ -51,10 +39,6 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            sudo apt update -y
-            sudo apt install git python-pip python-dev build-essential -y
-            sudo pip install --upgrade pip
-            pip install -r requirements.txt --upgrade --user
             git config --global user.email "autoburdz@burdz.net" > /dev/null 2>&1
             git config --global user.name "autoburdz" > /dev/null 2>&1
       - run:
