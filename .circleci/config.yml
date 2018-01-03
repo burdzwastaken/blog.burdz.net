@@ -1,9 +1,9 @@
 version: 2
 
 defaults: &defaults
-  machine:
-    enabled: true
-    
+  docker:
+    - image: burdz/blog.burdz.net-docker-image:latest
+
 jobs:
   build:
     <<: *defaults
@@ -15,7 +15,7 @@ jobs:
             echo $CIRCLE_SHA1 >> git_sha1.txt
       - run:
           name: set path
-          command: 
+          command:
             echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
       - run:
           name: install dependencies
