@@ -30,6 +30,8 @@ USE_FOLDER_AS_CATEGORY = False
 MAIN_MENU = True
 HOME_HIDE_TAGS = True
 
+LINKS = (('Resume', 'https://github.com/burdzwastaken/resume/blob/master/README.md'),)
+
 SOCIAL = (('linkedin', 'https://www.linkedin.com/in/burdz'),
           ('github', 'https://github.com/burdzwastaken'),
           ('twitter', 'https://twitter.com/burdzwastaken'),)
