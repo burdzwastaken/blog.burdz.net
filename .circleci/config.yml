@@ -68,6 +68,7 @@ workflows:
             branches:
               only:
                 - master
+                - gh-pages
       - hold:
           type: approval
           requires:
