@@ -4,6 +4,10 @@ defaults: &defaults
   docker:
     - image: burdz/blog.burdz.net-docker-image:latest
 
+test:
+  override:
+    - true
+
 jobs:
   build:
     <<: *defaults

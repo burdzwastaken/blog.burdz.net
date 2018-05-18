@@ -1,0 +1,27 @@
+version: 2
+
+always_pending:
+  title_regex: '(WIP|wip)'
+  labels:
+    - wip
+  explanation: 'This PR is a work in progress...'
+
+group_defaults:
+  reset_on_push:
+    enabled: true
+	reset_on_reopened:
+		enabled: true
+	approve_by_comment:
+		enabled: true
+  reject_value: -1
+  approve_regex: '^(Approved|:shipit:|:\+1:|Engage|:taco:|LGTM)'
+  reject_regex: '^(Rejected|:-1:|Borg)'
+  author_approval:
+    auto: true
+
+groups:
+  reviewer:
+    required: 1
+		users:
+			- burdzwastaken
+
