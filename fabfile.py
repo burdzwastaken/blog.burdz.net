@@ -62,5 +62,6 @@ def publish():
     local('echo blog.burdz.net > {deploy_path}/CNAME'.format(**env))
     local("echo $'User-agent: *\nSitemap: http://blog.burdz.net/sitemap.xml' > {deploy_path}/robots.txt".format(**env))
     local("ghp-import -b {github_pages_branch} {deploy_path}".format(**env))
+    local("git checkout {github_pages_branch}".format(**env))
     local('git commit --amend -m "publishing blog changes - [ci skip]"'.format(**env))
     local("git push origin {github_pages_branch}".format(**env))
