@@ -9,10 +9,10 @@ always_pending:
 group_defaults:
   reset_on_push:
     enabled: true
-	reset_on_reopened:
-		enabled: true
-	approve_by_comment:
-		enabled: true
+  reset_on_reopened:
+    enabled: true
+  approve_by_comment:
+    enabled: true
   reject_value: -1
   approve_regex: '^(Approved|:shipit:|:\+1:|Engage|:taco:|LGTM)'
   reject_regex: '^(Rejected|:-1:|Borg)'
@@ -22,6 +22,6 @@ group_defaults:
 groups:
   reviewer:
     required: 1
-		users:
-			- burdzwastaken
+      users:
+        - burdzwastaken
 
